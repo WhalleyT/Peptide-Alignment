@@ -18,19 +18,16 @@ inline void gpuAssert(cudaError_t code, char *file, int line, bool abort=true)
 int main(int argc, char **argv) {
 
     if(argc != 5){
-        std::cerr << "4 command line arguments must be supplied." << std::endl;
+        std::cerr << "3 command line arguments must be supplied." << std::endl;
         std::cerr << std::endl;
         std::cerr << "They are as follows:" << std::endl;
         std::cerr << "-Query FASTA" << std::endl;
         std::cerr << "-Reference FASTA" << std::endl;
         std::cerr << "-Peptide length" << std::endl;
-        std::cerr << "-GPU Device" << std::endl;
         std::cerr << std::endl;
         return 1;
     }
 
-    //cudaSetDevice(std::stoi(argv[4]));
-    //std::cout << "CUDA set to device " << argv[4] << std::endl;
 
     FastaFile query(argv[1], std::stoi(argv[3]));
     FastaFile reference(argv[2], std::stoi(argv[3]));
